@@ -1,5 +1,5 @@
 <?php
-namespace ElementorHelloWorld\Widgets;
+namespace VenusCompanion\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -38,7 +38,7 @@ class Hello_World extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Hello World', 'elementor-hello-world' );
+		return __( 'Hello World', 'venus-companion' );
 	}
 
 	/**
@@ -84,7 +84,7 @@ class Hello_World extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return [ 'elementor-hello-world' ];
+		return [ 'venus-companion' ];
 	}
 
 	/**
@@ -100,14 +100,14 @@ class Hello_World extends Widget_Base {
 		$this->start_controls_section(
 			'section_content',
 			[
-				'label' => __( 'Content', 'elementor-hello-world' ),
+				'label' => __( 'Content', 'venus-companion' ),
 			]
 		);
 
 		$this->add_control(
 			'title',
 			[
-				'label' => __( 'Title', 'elementor-hello-world' ),
+				'label' => __( 'Title', 'venus-companion' ),
 				'type' => Controls_Manager::TEXT,
 			]
 		);
@@ -117,7 +117,7 @@ class Hello_World extends Widget_Base {
 		$this->start_controls_section(
 			'section_style',
 			[
-				'label' => __( 'Style', 'elementor-hello-world' ),
+				'label' => __( 'Style', 'venus-companion' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -125,14 +125,14 @@ class Hello_World extends Widget_Base {
 		$this->add_control(
 			'text_transform',
 			[
-				'label' => __( 'Text Transform', 'elementor-hello-world' ),
+				'label' => __( 'Text Transform', 'venus-companion' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => '',
 				'options' => [
-					'' => __( 'None', 'elementor-hello-world' ),
-					'uppercase' => __( 'UPPERCASE', 'elementor-hello-world' ),
-					'lowercase' => __( 'lowercase', 'elementor-hello-world' ),
-					'capitalize' => __( 'Capitalize', 'elementor-hello-world' ),
+					'' => __( 'None', 'venus-companion' ),
+					'uppercase' => __( 'UPPERCASE', 'venus-companion' ),
+					'lowercase' => __( 'lowercase', 'venus-companion' ),
+					'capitalize' => __( 'Capitalize', 'venus-companion' ),
 				],
 				'selectors' => [
 					'{{WRAPPER}} .title' => 'text-transform: {{VALUE}};',

@@ -1,5 +1,5 @@
 <?php
-namespace ElementorHelloWorld\Widgets;
+namespace VenusCompanion\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -34,7 +34,7 @@ class Inline_Editing extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Inline Editing', 'elementor-hello-world' );
+		return __( 'Inline Editing', 'venus-companion' );
 	}
 
 	/**
@@ -81,34 +81,34 @@ class Inline_Editing extends Widget_Base {
 		$this->start_controls_section(
 			'section_content',
 			[
-				'label' => __( 'Content', 'elementor-hello-world' ),
+				'label' => __( 'Content', 'venus-companion' ),
 			]
 		);
 
 		$this->add_control(
 			'title',
 			[
-				'label' => __( 'Title', 'elementor-hello-world' ),
+				'label' => __( 'Title', 'venus-companion' ),
 				'type' => Controls_Manager::TEXT,
-				'default' => __( 'Title', 'elementor-hello-world' ),
+				'default' => __( 'Title', 'venus-companion' ),
 			]
 		);
 
 		$this->add_control(
 			'description',
 			[
-				'label' => __( 'Description', 'elementor-hello-world' ),
+				'label' => __( 'Description', 'venus-companion' ),
 				'type' => Controls_Manager::TEXTAREA,
-				'default' => __( 'Description', 'elementor-hello-world' ),
+				'default' => __( 'Description', 'venus-companion' ),
 			]
 		);
 
 		$this->add_control(
 			'content',
 			[
-				'label' => __( 'Content', 'elementor-hello-world' ),
+				'label' => __( 'Content', 'venus-companion' ),
 				'type' => Controls_Manager::WYSIWYG,
-				'default' => __( 'Content', 'elementor-hello-world' ),
+				'default' => __( 'Content', 'venus-companion' ),
 			]
 		);
 

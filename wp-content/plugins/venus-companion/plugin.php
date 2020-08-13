@@ -1,5 +1,7 @@
 <?php
-namespace ElementorHelloWorld;
+namespace VenusCompanion;
+use VenusCompanion\Widgets\Hello_World;
+use VenusCompanion\Widgets\Inline_Editing;
 
 /**
  * Class Plugin
@@ -7,7 +9,7 @@ namespace ElementorHelloWorld;
  * Main Plugin class
  * @since 1.2.0
  */
-class Plugin {
+class VenusPlugin {
 
 	/**
 	 * Instance
@@ -16,7 +18,7 @@ class Plugin {
 	 * @access private
 	 * @static
 	 *
-	 * @var Plugin The single instance of the class.
+	 * @var Venus The single instance of the class.
 	 */
 	private static $_instance = null;
 
@@ -28,7 +30,7 @@ class Plugin {
 	 * @since 1.2.0
 	 * @access public
 	 *
-	 * @return Plugin An instance of the class.
+	 * @return Venus An instance of the class.
 	 */
 	public static function instance() {
 		if ( is_null( self::$_instance ) ) {
@@ -40,13 +42,13 @@ class Plugin {
 	/**
 	 * widget_scripts
 	 *
-	 * Load required plugin core files.
+	 * Load required Venus core files.
 	 *
 	 * @since 1.2.0
 	 * @access public
 	 */
 	public function widget_scripts() {
-		wp_register_script( 'elementor-hello-world', plugins_url( '/assets/js/hello-world.js', __FILE__ ), [ 'jquery' ], false, true );
+		wp_register_script( 'venus-companion', Venuss_url( '/assets/js/hello-world.js', __FILE__ ), [ 'jquery' ], false, true );
 	}
 
 	/**
@@ -75,14 +77,14 @@ class Plugin {
 		$this->include_widgets_files();
 
 		// Register Widgets
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Hello_World() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Inline_Editing() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Hello_World() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Inline_Editing() );
 	}
 
 	/**
-	 *  Plugin class constructor
+	 *  Venus class constructor
 	 *
-	 * Register plugin action hooks and filters
+	 * Register Venus action hooks and filters
 	 *
 	 * @since 1.2.0
 	 * @access public
@@ -97,5 +99,5 @@ class Plugin {
 	}
 }
 
-// Instantiate Plugin Class
+// Instantiate Venus Class
 Plugin::instance();
