@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class Image_Hover extends Widget_Base {
+class Icon_Text extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
@@ -25,7 +25,7 @@ class Image_Hover extends Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'image-hover';
+		return 'icon-text';
 	}
 
 	/**
@@ -38,7 +38,7 @@ class Image_Hover extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Image Hover', 'venus-companion' );
+		return __( 'Icon Text', 'venus-companion' );
 	}
 
 	/**
@@ -84,7 +84,7 @@ class Image_Hover extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	/* public function get_script_depends() {
-		// return [ 'venus-companion' ];
+		return [ 'venus-companion' ];
 	} */
 
 	/**
@@ -101,6 +101,18 @@ class Image_Hover extends Widget_Base {
 			'section_content',
 			[
 				'label' => __( 'Content', 'venus-companion' ),
+			]
+		);
+
+		$this->add_control(
+			'icon',
+			[
+				'label' => __( 'Icon', 'text-domain' ),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-star',
+					'library' => 'solid',
+				],
 			]
 		);
 
@@ -146,28 +158,6 @@ class Image_Hover extends Widget_Base {
 					'{{WRAPPER}} .title' => 'text-transform: {{VALUE}};',
 				],
 			]
-        );
-        
-        $this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
-			[
-				'name' => 'background',
-				'label' => __( 'Background', 'venus-companion' ),
-				'types' => [ 'classic', 'gradient', 'video' ],
-				'selector' => '{{WRAPPER}} .hero-img',
-                ]
-            );
-            
-            $this->add_control(
-                'height',
-                [
-                    'label' => __( 'Height', 'venus-companion' ),
-                    'type' => Controls_Manager::NUMBER,
-                    'default' => '300',
-                    'selectors' => [
-                        '{{WRAPPER}} .box-hover' => 'height: {{VALUE}}px;',
-                    ],
-			]
 		);
 
 		$this->end_controls_section();
@@ -186,23 +176,15 @@ class Image_Hover extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 
         ?>
-        <section class="section-gap box-hover mb-md-0 mb-4">
-            <div class="hero-img bg-overlay rounded overflow-hidden" data-overlay="0"></div>
-            <div class="container">
-                <div class="row justify-content-center align-items-center py-2">
-                    <div class="col-md-10">
-                        <!-- heading -->
-                        <h4 class="mb-4">
-                            <?php echo esc_html($settings['title']);?>
-                        </h4>
-                        <!-- subheading -->
-                        <p class=" mb-4">
-                            <?php echo esc_html($settings['description']);?>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div class="blurb blurb-border text-center box-hover mb-4">
+            <i class="<?php echo esc_attr($settings['icon']['value']);?> text-primary"></i>
+            <h6 class="mb-2">
+                <?php echo esc_html($settings['title']);?>
+            </h6>
+            <p class="text-muted mb-0">
+                <?php echo esc_html($settings['description']);?>
+            </p>
+        </div>
         <?php
 	}
 
