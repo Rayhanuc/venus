@@ -131,6 +131,8 @@ class Portfolio extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+
+		
 	}
 
 	/**
@@ -145,45 +147,45 @@ class Portfolio extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
-		if($settings['show_tags']=='yes'){
+        if($settings['show_tags']=='yes'){
             $tags = get_terms([
-                'hide_empty'=>'true',
-                'taxonomy' =>'ptags'
-            ])
+                'hide_empty'=>true,
+                'taxonomy'=>'ptags'
+            ]);
             ?>
-                <div class="text-center">
-                    <ul class="portfolio-filter">
-                        <li class="active"><a href="#" data-filter="*"> All</a></li>
-                        <?php
-                        foreach($tags as $tag){
-                            printf('<li><a href="#" data-filter=".%s">%s</a></li>',esc_attr($tag->slug), esc_html($tag->name));
-                        }
-                        ?>                        
-                    </ul>
-                </div>
+            <div class="text-center">
+                <ul class="portfolio-filter">
+                    <li class="active"><a href="#" data-filter="*"> All</a></li>
+                    <?php 
+                    foreach($tags as $tag){
+                        printf('<li><a href="#" data-filter=".%s">%s</a></li>',esc_attr($tag->slug),esc_html($tag->name));
+                    }
+                    ?>
+                </ul>
+            </div>
             <?php
 
             $postfolios = new WP_Query([
-                'post_per_page' => -1,
-                'post_type' => 'portfolio',
-                'post_status' => 'publish'
+                'posts_per_page'=>-1,
+                'post_type'=>'portfolio',
+                'post_status'=>'publish'
             ]);
-            
-            echo '<div class="portfolio-grid portfolio-gallery grid-3 gutter">';
+
+            echo '<div class="portfolio-grid portfolio-gallery grid-4 gutter">';
             while($postfolios->have_posts()){
                 $postfolios->the_post();
                 $portfolio_tags = $this->get_portfolio_tags(get_the_ID());
-                $image_url = get_the_post_thumbnail_url(get_the_ID(),'large');
+                $image_url  = get_the_post_thumbnail_url(get_the_ID(),'large');
                 ?>
-                <div class="portfolio-item <?php echo esc_attr($portfolio_tags);?>">
-                    <a href="<?php echo esc_url($image_url);?>" class="portfolio-image popup-gallery"
+                <div class="portfolio-item <?php echo esc_attr($portfolio_tags) ;?>">
+                    <a href="<?php echo esc_url($image_url)  ;?>" class="portfolio-image popup-gallery"
                         title="Venus Product">
-                        <img src="<?php echo esc_url($image_url);?>" alt="" />
+                        <img src="<?php echo esc_url($image_url)  ;?>" alt="" />
                         <div class="portfolio-hover-title">
                             <div class="portfolio-content">
-                                <h6><?php the_title();?></h6>
+                                <h6><?php the_title() ;?></h6>
                                 <div class="portfolio-category">
-                                    <span><?php the_excerpt();?></span>
+                                    <span><?php the_excerpt() ;?></span>
                                 </div>
                             </div>
                         </div>
@@ -191,13 +193,12 @@ class Portfolio extends Widget_Base {
                 </div>
                 <?php
             }
-
             echo '</div>';
 
-            wp_reset_postdata();
-            // wp_reset_query();
+            wp_reset_query();
         }
-	}
+
+        }
 
 	/**
 	 * Render the widget output in the editor.
@@ -217,12 +218,13 @@ class Portfolio extends Widget_Base {
     } */
     
     private function get_portfolio_tags($post_id){
-        $tags = get_the_terms($post_id,'ptags');
+		$tags = get_the_terms($post_id,'ptags');
         $_tags = [];
-        foreach($tags as $tag) {
+        foreach($tags as $tag){
             $_tags[$tag->term_id] = $tag->slug;
         }
 
         return join(' ',$_tags);
     }
+    
 }
