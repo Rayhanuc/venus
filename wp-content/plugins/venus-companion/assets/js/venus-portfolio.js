@@ -1,5 +1,5 @@
 ;(function($){
-    $(document).ready(function(){
+    $(window).on('elementor/frontend/init',function(){
         if(window.elementorFrontEnd){
             setTimeout(function(){
                 elementorFrontEnd.hooks.addAction('frontend/element_ready/portfolio.default',function(scope,$){
