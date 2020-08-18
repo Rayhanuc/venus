@@ -39,8 +39,8 @@ function lwhhl_theme_init() {
 		)
 	);
 
-	add_image_size('luoyang-portfolio',800,9999);
-	add_image_size('luoyang-team',800,800, true);
+	add_image_size('venus-portfolio',800,9999);
+	add_image_size('venus-team',800,800, true);
 }
 
 add_action('after_setup_theme','lwhhl_theme_init');

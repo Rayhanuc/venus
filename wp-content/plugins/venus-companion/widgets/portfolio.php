@@ -130,6 +130,21 @@ class Portfolio extends Widget_Base {
 			]
 		);
 
+        $this->add_control(
+			'portfolio_column',
+			[
+				'label' => __( 'Portfolio Column', 'venus-companion' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'grid-3',
+				'options' => [
+					'grid-1' => __( 'Grid 1', 'venus-companion' ),
+					'grid-2' => __( 'Grid 2', 'venus-companion' ),
+					'grid-3' => __( 'Grid 3', 'venus-companion' ),
+					'grid-4' => __( 'Grid 4', 'venus-companion' ),
+				],
+			]
+		);
+
 		$this->end_controls_section();
 	}
 
@@ -169,11 +184,15 @@ class Portfolio extends Widget_Base {
                 'post_status' => 'publish'
             ]);
             
-            echo '<div class="portfolio-grid portfolio-gallery grid-3 gutter">';
+            echo '<div class="portfolio-grid portfolio-gallery '.$settings['portfolio_column'].' gutter">';
             while($postfolios->have_posts()){
                 $postfolios->the_post();
                 $portfolio_tags = $this->get_portfolio_tags(get_the_ID());
-                $image_url = get_the_post_thumbnail_url(get_the_ID(),'large');
+                if($settings['portfolio_style']=='square'){
+                    $image_url = get_the_post_thumbnail_url(get_the_ID(),'venus-team');
+                }else{
+                    $image_url = get_the_post_thumbnail_url(get_the_ID(),'large');
+                }
                 ?>
                 <div class="portfolio-item <?php echo esc_attr($portfolio_tags);?>">
                     <a href="<?php echo esc_url($image_url);?>" class="portfolio-image popup-gallery"
