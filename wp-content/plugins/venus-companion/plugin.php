@@ -10,6 +10,7 @@ use VenusCompanion\Widgets\Testimonial;
 use VenusCompanion\Widgets\Service_Widget;
 use VenusCompanion\Widgets\Bullet_list;
 use VenusCompanion\Widgets\Client_logo;
+use VenusCompanion\Widgets\Team_Carousel;
 
 /**
  * Class Plugin
@@ -60,6 +61,7 @@ class VenusPlugin {
 		wp_register_script( 'venus-portfolio', plugins_url( '/assets/js/venus-portfolio.js', __FILE__ ), [ 'jquery','imagesloaded-js','isotope-js' ], time(), true );
 		wp_register_script( 'venus-carousel', plugins_url( '/assets/js/venus-carousel.js', __FILE__ ), [ 'jquery','imagesloaded-js','isotope-js' ], time(), true );
 		wp_register_script( 'venus-client-logo', plugins_url( '/assets/js/venus-client-logo.js', __FILE__ ), [ 'jquery','imagesloaded-js','isotope-js' ], time(), true );
+		wp_register_script( 'venus-team-carousel', plugins_url( '/assets/js/venus-team-carousel.js', __FILE__ ), [ 'jquery','imagesloaded-js','isotope-js' ], time(), true );
 	}
 
 	/**
@@ -81,6 +83,7 @@ class VenusPlugin {
 		require_once( __DIR__ . '/widgets/service-widget.php' );
 		require_once( __DIR__ . '/widgets/bullet-list.php' );
 		require_once( __DIR__ . '/widgets/client-logo.php' );
+		require_once( __DIR__ . '/widgets/team-carousel.php' );
 	}
 
 	/**
@@ -106,6 +109,7 @@ class VenusPlugin {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Service_Widget() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Bullet_list() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Client_logo() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Team_Carousel() );
 	}
 
 	/**
