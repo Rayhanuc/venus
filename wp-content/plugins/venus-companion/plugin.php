@@ -11,6 +11,7 @@ use VenusCompanion\Widgets\Service_Widget;
 use VenusCompanion\Widgets\Bullet_list;
 use VenusCompanion\Widgets\Client_logo;
 use VenusCompanion\Widgets\Team_Carousel;
+use VenusCompanion\Widgets\Minimal_Team_Member;
 
 /**
  * Class Plugin
@@ -83,6 +84,7 @@ class VenusPlugin {
 		require_once( __DIR__ . '/widgets/service-widget.php' );
 		require_once( __DIR__ . '/widgets/bullet-list.php' );
 		require_once( __DIR__ . '/widgets/client-logo.php' );
+		require_once( __DIR__ . '/widgets/minimal-team-member.php' );
 		require_once( __DIR__ . '/widgets/team-carousel.php' );
 	}
 
@@ -110,6 +112,7 @@ class VenusPlugin {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Bullet_list() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Client_logo() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Team_Carousel() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Minimal_Team_Member() );
 	}
 
 	/**
