@@ -29,7 +29,7 @@ class Contact_Form extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return array('venus-companion');
+        return array('venus-contact');
     }
 
     protected function _register_controls() {
@@ -131,6 +131,9 @@ class Contact_Form extends Widget_Base {
         ?>
         <div class="form-wrapper">
             <form class="p-4 py-5">
+                <?php 
+                wp_nonce_field( 'venus-contact', 'venus_nonce', $referer = true, $echo = true )
+                 ?>
                 <h5 class="mb-3"><?php echo esc_html($settings['title']); ?></h5>
 
                 <?php 
@@ -146,7 +149,7 @@ class Contact_Form extends Widget_Base {
                     }
                 }
                  ?>
-                <button type="submit" class="btn btn-pill btn-primary"><?php echo esc_html($settings['button_title']); ?></button>
+                <button type="submit" class="contact_button btn btn-pill btn-primary"><?php echo esc_html($settings['button_title']); ?></button>
             </form>
         </div>
         <?php
