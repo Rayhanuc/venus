@@ -25,8 +25,8 @@ function lwhhl_theme_init() {
 	add_theme_support(
 		'custom-logo',
 		array(
-			'height'      => 133,
-			'width'       => 443,
+			'height'      => 26,
+			'width'       => 90,
 			'flex-width'  => false,
 			'flex-height' => false,
 		)

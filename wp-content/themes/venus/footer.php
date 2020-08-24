@@ -3,11 +3,21 @@
     <footer class="app-footer bg-dark pb-0 border-0 text-md-left text-center">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 mb-md-0 mb-4">
-                    <img class="pr-3  mb-md-5 mb-3" src="assets/img/logo-color.png"
-                        srcset="assets/img/logo-color@2x.png 2x" alt="">
-                    <p class="text-muted pr-md-5 pr-0">A great and powerful collection of modern designed component pack
-                        to build better website for your next project</p>
+                <div class="col-md-6 mb-md-0 mb-4 custom_logo">
+                    <?php 
+                        the_custom_logo();
+                        if (!has_custom_logo()) {
+                         ?>
+                         <a class="" href="<?php echo home_url(); ?>">
+                        <img class="pr-3  mb-md-5 mb-3" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo-color.png"
+                            srcset="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo-color@2x.png 2x" alt="">
+                        </a>
+                        <?php 
+                        } 
+                        ?>
+                        <p class="text-muted pr-md-5 pr-0">A great and powerful collection of modern designed component pack
+                            to build better website for your next project</p>
+
                 </div>
 
                 <div class="col-md-2 mb-md-0 mb-4">
