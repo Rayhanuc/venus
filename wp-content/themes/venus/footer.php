@@ -22,30 +22,49 @@
 
                 <div class="col-md-2 mb-md-0 mb-4">
                     <h6 class="mb-4">Platform</h6>
-                    <ul class="footer-link">
+                    <?php 
+                    
+                        wp_nav_menu([
+                            'theme_location' => 'footer-left',
+                            'menu_class' => 'footer-link',
+                        ]);
+                     ?>
+                    <!-- <ul class="footer-link">
                         <li class="d-block"><a href="#">Mac OS &amp; iOS</a></li>
                         <li class="d-block"><a href="#">Android &amp; Chrome OS</a></li>
                         <li class="d-block"><a href="#">Windows</a></li>
                         <li class="d-block"><a href="#">Linux</a></li>
-                    </ul>
+                    </ul> -->
                 </div>
                 <div class="col-md-2 mb-md-0 mb-4">
                     <h6 class="mb-4">Community</h6>
-                    <ul class="footer-link">
+                    <?php 
+                        wp_nav_menu([
+                            'theme_location' => 'footer-middle',
+                            'menu_class' => 'footer-link',
+                        ]);
+                     ?>
+                    <!-- <ul class="footer-link">
                         <li class="d-block"><a href="#">Knowledge base</a></li>
                         <li class="d-block"><a href="#">Hire an expart</a></li>
                         <li class="d-block"><a href="#">FAQ</a></li>
                         <li class="d-block"><a href="#">Contact</a></li>
-                    </ul>
+                    </ul> -->
                 </div>
                 <div class="col-md-2 mb-md-0 mb-4">
                     <h6 class="mb-4">Company</h6>
-                    <ul class="footer-link">
+                    <?php 
+                        wp_nav_menu([
+                            'theme_location' => 'footer-right',
+                            'menu_class' => 'footer-link',
+                        ]);
+                     ?>
+                    <!-- <ul class="footer-link">
                         <li class="d-block"><a href="#">About Company</a></li>
                         <li class="d-block"><a href="#">History</a></li>
                         <li class="d-block"><a href="#">Team</a></li>
                         <li class="d-block"><a href="#">Investment</a></li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </div>
