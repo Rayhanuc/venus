@@ -3,24 +3,7 @@ get_header();
 ?>
 
 
-    <!-- search modal start-->
-    <div class="modal fade" id="f-modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content border-0">
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group mb-0">
-                            <div class="icon-field-right">
-                                <i class="vl-search"></i>
-                                <input type="text" class="form-control border-0" placeholder="Type Here...">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- search modal end-->
+
 
 
     <!--hero start-->

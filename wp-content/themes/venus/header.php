@@ -62,3 +62,18 @@
         </div>
     </header>
     <!--header end-->
+
+        <!-- search modal start-->
+    <div class="modal fade" id="f-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content border-0">
+                <div class="modal-body">
+                    <?php 
+
+                    get_search_form(  );
+                     ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- search modal end-->
